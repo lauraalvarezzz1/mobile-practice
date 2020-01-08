@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComicsService } from '../services/comics-service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  prueba;
 
-  constructor() {}
+  constructor(public comicsService: ComicsService) {
+    this.getCommits();
+  }
+
+  getCommits() {
+    this.prueba = this.comicsService.getCommit().subscribe(response => {
+      console.log(response);
+    });
+  }
 
 }
