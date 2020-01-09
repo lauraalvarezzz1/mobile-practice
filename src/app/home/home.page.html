@@ -1,28 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
     <ion-title class="logo-image">
       <img src="/assets/marvel-icono.png"/>
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
+<ion-content class="main-container">
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let item of items">
+      <ion-col *ngFor="let item of items; let i = index">
         <div>
-          <ion-card>
+          <ion-card class="card-container">
             <img [src]="item.thumbnail.path" alt=""/>
-            <ion-card-header>
-              <ion-card-subtitle>{{item.modified }}</ion-card-subtitle>
+            <ion-card-header class="comic-header">
+              <ion-card-subtitle class="comic-date">{{item.modified }}</ion-card-subtitle>
               <ion-card-title class="comic-title">{{item.title}}</ion-card-title>
             </ion-card-header>
+            <ion-card-content class="comic-card-content">
+              <ion-icon class="like-icon" name="happy" (click)="countLikes()"></ion-icon><span class="text">{{ likes }}</span>
+              <ion-icon class="dislike-icon" name="sad" (click)="countDislikes()"></ion-icon><span class="text">{{ dislikes }}</span>
+            </ion-card-content>
           </ion-card>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+

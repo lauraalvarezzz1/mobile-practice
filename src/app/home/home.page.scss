@@ -7,6 +7,30 @@
   width: 100px;
 }
 
-.comic-title {
-  font-size: 15px;
+.main-container {
+  .card-container {
+    margin: 10px;
+  }
+
+  .comic-header {
+    .comic-title {
+      font-size: 12px;
+    }
+    
+    .comic-date {
+      font-size: 10px;
+    }
+  }
+
+  .comic-card-content {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-flex;
+
+    .like-icon, .dislike-icon {
+      cursor: pointer;
+      font-size: 24px;
+      margin: 0 5px;
+    }
+  }
 }

@@ -8,7 +8,7 @@ export class ComicsService {
   constructor(private http: HttpClient) {
   }
 
-  getCommit(): Observable<any> {
+  getComic(): Observable<any> {
       const getURL = `${environment.api}?ts=1&apikey=${environment.apiKey}&hash=${environment.hash}`;
       return this.http.get(getURL);
   }

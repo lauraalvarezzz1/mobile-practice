@@ -9,13 +9,17 @@ import { ComicsService } from '../services/comics-service';
 export class HomePage {
   comics: any;
   items: any;
+  likes: number;
+  dislikes: number;
 
   constructor(public comicsService: ComicsService) {
-    this.getCommits();
+    this.getComics();
+    this.likes = 0;
+    this.dislikes = 0;
   }
 
-  getCommits() {
-    this.comics = this.comicsService.getCommit().subscribe(response => {
+  getComics() {
+    this.comics = this.comicsService.getComic().subscribe(response => {
       this.items = response.data.results;
       this.items.map(item => {
         item.thumbnail.path = item.thumbnail.path + "/portrait_xlarge.jpg";
@@ -24,4 +28,11 @@ export class HomePage {
     });
   }
 
+  countLikes() {
+    this.likes = this.likes + 1;
+  }
+
+  countDislikes() {
+    this.dislikes = this.dislikes + 1;
+  }
 }
