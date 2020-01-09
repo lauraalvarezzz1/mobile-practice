@@ -7,15 +7,20 @@ import { ComicsService } from '../services/comics-service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  prueba;
+  comics: any;
+  items: any;
 
   constructor(public comicsService: ComicsService) {
     this.getCommits();
   }
 
   getCommits() {
-    this.prueba = this.comicsService.getCommit().subscribe(response => {
-      console.log(response);
+    this.comics = this.comicsService.getCommit().subscribe(response => {
+      this.items = response.data.results;
+      this.items.map(item => {
+        item.thumbnail.path = item.thumbnail.path + "/portrait_xlarge.jpg";
+      });
+      console.log(response.data.results);
     });
   }
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export class ComicsService {
+  laura: any;
 
   constructor(private http: HttpClient) {
   }
