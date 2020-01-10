@@ -17,13 +17,25 @@
               <ion-card-title class="comic-title">{{item.title}}</ion-card-title>
             </ion-card-header>
             <ion-card-content class="comic-card-content">
-              <ion-icon class="like-icon" name="happy" (click)="countLikes()"></ion-icon><span class="text">{{ likes }}</span>
-              <ion-icon class="dislike-icon" name="sad" (click)="countDislikes()"></ion-icon><span class="text">{{ dislikes }}</span>
+              <ion-icon class="like-icon" name="happy" (click)="countLikes(i)"></ion-icon><span class="text">{{ itemList[i].likes }}</span>
+              <ion-icon class="dislike-icon" name="sad" (click)="countDislikes(i)"></ion-icon><span class="text">{{ itemList[i].dislikes }}</span>
             </ion-card-content>
           </ion-card>
         </div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
 </ion-content>
+
+  <!-- <ion-content class="main-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <app-card *ngFor="let item of items;"
+            [item]="item">
+          </app-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content> -->
 
