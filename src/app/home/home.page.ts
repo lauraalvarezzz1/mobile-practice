@@ -26,14 +26,11 @@ export class HomePage implements OnInit{
       this.items.map(item => {
         item.thumbnail.path = item.thumbnail.path + "/portrait_xlarge.jpg";
       });
-      console.log(response.data.results);
     });
   }
 
   countLikes(index) {
-    console.log(this.itemList[index]);
     this.itemList[index].likes = this.itemList[index].likes + 1;
-    console.log(this.itemList);
   }
 
   countDislikes(index) {
