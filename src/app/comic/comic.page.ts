@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ComicsService } from '../services/comics-service';
 import { itemPreferences } from '../models/item-likes.model';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-comic',
@@ -13,12 +15,18 @@ export class ComicPage implements OnInit{
   items: any;
   itemList: Array<itemPreferences>;
 
-  constructor(public comicsService: ComicsService) {}
+  constructor(public comicsService: ComicsService,
+              private inAppBrowser: InAppBrowser,
+              private platform: Platform) {}
 
   ngOnInit(){
     this.getComics();
-    
   }
+
+  launchSite() {
+    this.inAppBrowser.create('');
+  }
+
   getComics() {
     this.comics = this.comicsService.getComic().subscribe(response => {
       this.items = response.data.results;
