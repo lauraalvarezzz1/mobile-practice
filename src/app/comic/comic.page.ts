@@ -3,12 +3,12 @@ import { ComicsService } from '../services/comics-service';
 import { itemPreferences } from '../models/item-likes.model';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-comic',
+  templateUrl: 'comic.page.html',
+  styleUrls: ['comic.page.scss'],
 })
 
-export class HomePage implements OnInit{
+export class ComicPage implements OnInit{
   comics: any;
   items: any;
   itemList: Array<itemPreferences>;
